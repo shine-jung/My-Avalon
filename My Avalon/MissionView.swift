@@ -22,6 +22,7 @@ struct MissionView: View {
     @State private var navigateToEndView = false
     @State private var players: [Player]
     @State private var selectedQuestCard: Bool? = nil
+    @State private var showResults = false
     
     init(players: [Player], gameProgress: Binding<GameProgress>) {
         self._players = State(initialValue: players)
@@ -69,6 +70,8 @@ struct MissionView: View {
                 .padding()
             }
             
+            Spacer()
+            
             if isSelectingPlayers {
                 List(players) { player in
                     Button(action: {
@@ -98,7 +101,7 @@ struct MissionView: View {
                             selectedQuestCard = true
                         }
                         .padding()
-                        .background(selectedQuestCard == true ? .good : .gray)
+                        .background(selectedQuestCard == true ? .green : .gray)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                         
@@ -106,7 +109,7 @@ struct MissionView: View {
                             selectedQuestCard = false
                         }
                         .padding()
-                        .background(selectedQuestCard == false ? .evil : .gray)
+                        .background(selectedQuestCard == false ? .red : .gray)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                     }
@@ -122,13 +125,20 @@ struct MissionView: View {
                 }
             } else {
                 if !questResults.isEmpty {
-                    let successCount = questResults.filter { $0 }.count
-                    let failCount = questResults.filter { !$0 }.count
-                    
-                    Text("원정 결과: 성공 \(successCount)명, 실패 \(failCount)명")
-                        .onAppear {
-                            processQuestResults()
+                    if showResults {
+                        let successCount = questResults.filter { $0 }.count
+                        let failCount = questResults.filter { !$0 }.count
+                        
+                        Text("원정 결과: 성공 \(successCount)명, 실패 \(failCount)명")
+                            .onAppear {
+                                processQuestResults()
+                            }
+                    } else {
+                        Button("결과 보기") {
+                            showResults = true
                         }
+                        .padding()
+                    }
                 }
                 
                 if gameProgress.missions.filter({ $0.isSuccess == true }).count >= 3 {
@@ -151,13 +161,15 @@ struct MissionView: View {
                         self.navigateToEndView = true
                     }
                     .padding()
-                } else {
+                } else if showResults {
                     Button("다음 원정") {
                         nextMission()
                     }
                     .padding()
                 }
             }
+            
+            Spacer()
             
             NavigationLink(destination: GameEndView(players: players, onResetGame: {
                 resetGame(&gameProgress, &mission, &votes, &selectedPlayers, &isSelectingPlayers, &questResults, &currentQuestPlayerIndex, &opposeCount, &showOpposeAlert, &showGameEndAlert, &showRoles, &navigateToEndView, &players)
@@ -190,6 +202,7 @@ struct MissionView: View {
                 selectedPlayers = []
                 questResults = []
                 currentQuestPlayerIndex = 0
+                showResults = false
             }
         }
     }

@@ -53,16 +53,9 @@ struct ContentView: View {
                     } else {
                         List(players.indices, id: \.self) { index in
                             HStack {
-                                TextField("이름 입력", text: $players[index].name)
+                                SelectAllTextField(text: $players[index].name, nextFocus: index < players.count - 1 ? { focusedField = index + 1 } : { focusedField = nil })
                                     .focused($focusedField, equals: index)
                                     .submitLabel(index < players.count - 1 ? .next : .done)
-                                    .onSubmit {
-                                        if index < players.count - 1 {
-                                            focusedField = index + 1
-                                        } else {
-                                            focusedField = nil
-                                        }
-                                    }
                             }
                         }
                         
@@ -129,6 +122,51 @@ func assignRolesAndQuestSheet(players: inout [Player]) -> GameProgress {
     }
     
     return GameProgress(missions: missions, fourthMissionRequiresTwoFails: fourthMissionRequiresTwoFails)
+}
+
+struct SelectAllTextField: UIViewRepresentable {
+    @Binding var text: String
+    var nextFocus: () -> Void
+    
+    class Coordinator: NSObject, UITextFieldDelegate {
+        @Binding var text: String
+        var nextFocus: () -> Void
+        
+        init(text: Binding<String>, nextFocus: @escaping () -> Void) {
+            _text = text
+            self.nextFocus = nextFocus
+        }
+        
+        func textFieldDidChangeSelection(_ textField: UITextField) {
+            text = textField.text ?? ""
+        }
+        
+        func textFieldDidBeginEditing(_ textField: UITextField) {
+            DispatchQueue.main.async {
+                textField.selectAll(nil)
+            }
+        }
+        
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            nextFocus()
+            return true
+        }
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(text: $text, nextFocus: nextFocus)
+    }
+    
+    func makeUIView(context: Context) -> UITextField {
+        let textField = UITextField()
+        textField.delegate = context.coordinator
+        textField.returnKeyType = .next
+        return textField
+    }
+    
+    func updateUIView(_ uiView: UITextField, context: Context) {
+        uiView.text = text
+    }
 }
 
 #Preview {

@@ -1,3 +1,5 @@
+### This is not for commercial use. It can only be used in a personal environment.
+
 ## 스크린샷
 
 <table>
@@ -37,5 +39,6 @@
 </table>
 
 ## 만들게 된 이유
+
 ![KakaoTalk_Photo_2024-07-26-16-33-27-1](https://github.com/user-attachments/assets/b33742ae-e655-449d-a853-707f2593b1b4)
 수련회에 보드게임을 가져갈 수가 없어서😂
