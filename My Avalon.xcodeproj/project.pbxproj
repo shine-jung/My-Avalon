@@ -11,6 +11,13 @@
 		3C04F54D2C533E3400268ABD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C04F54C2C533E3400268ABD /* ContentView.swift */; };
 		3C04F54F2C533E3800268ABD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C04F54E2C533E3800268ABD /* Assets.xcassets */; };
 		3C04F5522C533E3800268ABD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C04F5512C533E3800268ABD /* Preview Assets.xcassets */; };
+		3C04F5592C533E8B00268ABD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C04F5582C533E8B00268ABD /* Player.swift */; };
+		3C04F55B2C533EA900268ABD /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C04F55A2C533EA900268ABD /* Mission.swift */; };
+		3C04F55D2C533EC200268ABD /* GameProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C04F55C2C533EC200268ABD /* GameProgress.swift */; };
+		3C04F55F2C533EE600268ABD /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C04F55E2C533EE600268ABD /* CardView.swift */; };
+		3C04F5612C533F1900268ABD /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C04F5602C533F1900268ABD /* MissionView.swift */; };
+		3C04F5672C5379F200268ABD /* GameEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C04F5662C5379F200268ABD /* GameEndView.swift */; };
+		3C04F5692C5381AB00268ABD /* QuestSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C04F5682C5381AB00268ABD /* QuestSheetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +26,13 @@
 		3C04F54C2C533E3400268ABD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3C04F54E2C533E3800268ABD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C04F5512C533E3800268ABD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3C04F5582C533E8B00268ABD /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		3C04F55A2C533EA900268ABD /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
+		3C04F55C2C533EC200268ABD /* GameProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProgress.swift; sourceTree = "<group>"; };
+		3C04F55E2C533EE600268ABD /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		3C04F5602C533F1900268ABD /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
+		3C04F5662C5379F200268ABD /* GameEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndView.swift; sourceTree = "<group>"; };
+		3C04F5682C5381AB00268ABD /* QuestSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestSheetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +67,13 @@
 			children = (
 				3C04F54A2C533E3400268ABD /* My_AvalonApp.swift */,
 				3C04F54C2C533E3400268ABD /* ContentView.swift */,
+				3C04F5602C533F1900268ABD /* MissionView.swift */,
+				3C04F5662C5379F200268ABD /* GameEndView.swift */,
+				3C04F55E2C533EE600268ABD /* CardView.swift */,
+				3C04F5682C5381AB00268ABD /* QuestSheetView.swift */,
+				3C04F5582C533E8B00268ABD /* Player.swift */,
+				3C04F55A2C533EA900268ABD /* Mission.swift */,
+				3C04F55C2C533EC200268ABD /* GameProgress.swift */,
 				3C04F54E2C533E3800268ABD /* Assets.xcassets */,
 				3C04F5502C533E3800268ABD /* Preview Content */,
 			);
@@ -137,8 +158,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C04F5612C533F1900268ABD /* MissionView.swift in Sources */,
 				3C04F54D2C533E3400268ABD /* ContentView.swift in Sources */,
+				3C04F5592C533E8B00268ABD /* Player.swift in Sources */,
+				3C04F55B2C533EA900268ABD /* Mission.swift in Sources */,
+				3C04F55D2C533EC200268ABD /* GameProgress.swift in Sources */,
+				3C04F55F2C533EE600268ABD /* CardView.swift in Sources */,
+				3C04F5692C5381AB00268ABD /* QuestSheetView.swift in Sources */,
 				3C04F54B2C533E3400268ABD /* My_AvalonApp.swift in Sources */,
+				3C04F5672C5379F200268ABD /* GameEndView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
